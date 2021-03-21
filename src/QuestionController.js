@@ -4,8 +4,8 @@ import QuestionData from './QuestionData';
 
 export default class QuestionController {
 
-    constructor(template) {
-        this.data = new QuestionData(template())
+    constructor(template, name) {
+        this.data = new QuestionData(template(), name)
     }
 
     gerar() {
@@ -21,7 +21,7 @@ export default class QuestionController {
     }
 
     selecionaAlternativa(event, item) {
-         if (event.target != item.element)
+        if (event.target != item.element)
             return;
 
         this.view.AtualizaSelecionar(this.data, item.element);
@@ -30,9 +30,9 @@ export default class QuestionController {
     }
 
     validar() {
-        this.view.AtualizaValidacao(this.data.alternativaCerta.element);    
+        this.view.AtualizaValidacao(this.data.alternativaCerta.element);
         if (this.data.alternativaSelecionada == this.data.alternativaCerta) {
-      
+
         }
     }
 

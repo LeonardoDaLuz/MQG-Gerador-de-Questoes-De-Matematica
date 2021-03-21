@@ -1,17 +1,17 @@
 import QuestionController from './QuestionController';
-import regraDeTres from './templates/regraDeTres';
-import './geradorDeQuestoes.css';
+import QuestionManager from './QuestionManager';
 
-const templates = {
-    "dfs" : regraDeTres
-}
 
 //console.log(templates);
 
+let quantidade = 20;
 var geradorContainer = document.getElementById("geradorContainer");
-var questController = new QuestionController(regraDeTres[0]);
-geradorContainer.append(questController.gerar());
 
-console.log("KCTA");
+let questionManager = new QuestionManager();
+window.questionManager = questionManager;
+//questionManager.gerar(geradorContainer, [ regraDeTres ]);
+questionManager.gerar(geradorContainer, [ "regra de tres" ]);
+
+ 
 
 //
