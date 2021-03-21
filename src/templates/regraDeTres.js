@@ -18,7 +18,7 @@ Na semana passada, ${percentualDeMaquinasQuePararaPraManutencao*100}% das máqui
     console.log(geradorContainer);
     return  {
         enunciado: enunciado,
-        alternativas: [
+        alternativasTxt: [
             (producaoDeFolasCom40Maquinas*6*(1-percentualDeMaquinasQuePararaPraManutencao)).toFixed()+ " folhas",
             (producaoDeFolasCom40Maquinas*7*(1-percentualDeMaquinasQuePararaPraManutencao)).toFixed()+ " folhas",
             (producaoDeFolasCom40Maquinas*7*(1-percentualDeMaquinasQuePararaPraManutencao)*1.1).toFixed()+ " folhas",
@@ -45,7 +45,7 @@ Na semana passada, ${percentualDeMaquinasQuePararaPraManutencao*100}% das máqui
     console.log(geradorContainer);
     return  {
         enunciado: enunciado,
-        alternativas: [
+        alternativasTxt: [
             (producaoDeFolasCom40Maquinas*6*(1-percentualDeMaquinasQuePararaPraManutencao)).toFixed()+ " folhas",
             (producaoDeFolasCom40Maquinas*7*(1-percentualDeMaquinasQuePararaPraManutencao)).toFixed()+ " folhas",
             (producaoDeFolasCom40Maquinas*7*(1-percentualDeMaquinasQuePararaPraManutencao)*1.1).toFixed()+ " folhas",

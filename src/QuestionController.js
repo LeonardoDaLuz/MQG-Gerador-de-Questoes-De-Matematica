@@ -4,6 +4,9 @@ import Mathf from './Mathf';
 export default class QuestionController {
     constructor(QuestaoData) {
         this.QuestaoData = QuestaoData;
+        this.porra = "porra";
+        this.alternativaSelecionada = "";
+        this.alternativaCerta = "";
         /*
         enunciado
         alternativas []
@@ -24,54 +27,72 @@ export default class QuestionController {
         container.appendChild(enunciado);
         var form = document.createElement("form");
         container.appendChild(form);
-        var alternativaCerta = this.QuestaoData.alternativas[this.QuestaoData.alternativaCerta];
-        this.QuestaoData.alternativas = this.randomizeArray(this.QuestaoData.alternativas);
-        console.log("certa:" + alternativaCerta);
-        var letras = ['A', 'B', 'C', 'D', 'E', 'F']
-        var elementosDasAlternativas = [];
-        for (var i = 0; i < this.QuestaoData.alternativas.length; i++) {
-
-            let alternativa = document.createElement("input");
-            alternativa.type = "radio";
-            alternativa.id = "alternativa-" + i;
-            alternativa.value = alternativa.id;
-            alternativa.name = "alt";
-            let label = document.createElement("label");
-            label.htmlFor = alternativa.id;
-            label.innerHTML = this.QuestaoData.alternativas[i];
-            label.prepend(alternativa);
-            form.appendChild(label);
-            let AltLetra = document.createElement("div");
-            AltLetra.classList.add("alternativaLetra");
-            AltLetra.innerHTML = letras[i];
-            label.prepend(AltLetra);
-            //form.appendChild(document.createElement("br"));
-            console.log(this.QuestaoData.alternativas[i]);
-
-            elementosDasAlternativas.push(label);
-
-            label.addEventListener('click', function (event) {
-                if (event.target != label)
-                    return;
-
-                seleciona(event, elementosDasAlternativas);
-            });
-
-            if (alternativaCerta == this.QuestaoData.alternativas[i]) {
-                label.classList.add("alternativaCerta");
-            }
-        }
 
 
-        function seleciona(event, elementosDasAlternativas) {
-            elementosDasAlternativas.forEach(element => {
-                element .classList.remove('selected');
-            })
-
-            event.target.classList.add("selected");
-        }
+        this.geraAlternativas(form);
 
         return container;
+    }
+
+    geraAlternativas(form) {
+
+        this.alternativaCerta = this.QuestaoData.alternativasTxt[this.QuestaoData.alternativaCerta];
+        this.QuestaoData.alternativasTxt = this.randomizeArray(this.QuestaoData.alternativasTxt);
+
+
+        var elementosDasAlternativas = [];
+        for (let i = 0; i < this.QuestaoData.alternativasTxt.length; i++) {
+            let alternativaElement = this.geraAlternativaElements(this.QuestaoData.alternativasTxt[i], i);
+            form.appendChild(alternativaElement);
+            elementosDasAlternativas.push(alternativaElement);
+            alternativaElement.onclick = (event) => {
+                this.selecionaAlternativa.bind(this)(event, alternativaElement, elementosDasAlternativas, this.QuestaoData.alternativasTxt[i]);
+            };
+        }
+    }
+
+    geraAlternativaElements(alternativa, id) {
+        const letras = ['A', 'B', 'C', 'D', 'E', 'F']
+        let InputAlternativa = document.createElement("input");
+        InputAlternativa.type = "radio";
+        InputAlternativa.id = "alternativa-" + id;
+        InputAlternativa.value = InputAlternativa.id;
+        InputAlternativa.name = "alt";
+        let label = document.createElement("label");
+        label.htmlFor = InputAlternativa.id;
+        label.innerHTML = alternativa;
+        label.prepend(InputAlternativa);
+
+        let AltLetra = document.createElement("div");
+        AltLetra.classList.add("alternativaLetra");
+        AltLetra.innerHTML = letras[id];
+        label.prepend(AltLetra);
+
+        return label;
+    }
+
+
+    selecionaAlternativa(event, elemento, elementosDasAlternativas, alternativaTxt) {
+
+        if (event.target != elemento)
+            return;
+
+        elementosDasAlternativas.forEach(element => {
+            element.classList.remove('selected');
+        })
+
+        event.target.classList.add("selected");
+        this.alternativaSelecionada = alternativaTxt;
+
+        this.validar();
+
+    }
+
+    validar() {
+        if (this.alternativaSelecionada == this.alternativaCerta) {
+
+            console.log("Acertou: "+this.alternativaSelecionada);
+        }
     }
 
     randomizeArray(array) {
