@@ -9,8 +9,8 @@ const templates = {
 //console.log(templates);
 
 var geradorContainer = document.getElementById("geradorContainer");
-var questController = new QuestionController(regraDeTres[0]());
-geradorContainer.append(questController.gerarElementos());
+var questController = new QuestionController(regraDeTres[0]);
+geradorContainer.append(questController.gerar());
 
 console.log("KCTA");
 

@@ -1,102 +1,44 @@
 import Mathf from './Mathf';
-
+import QuestionView from './QuestionView';
+import QuestionData from './QuestionData';
 
 export default class QuestionController {
-    constructor(QuestaoData) {
-        this.QuestaoData = QuestaoData;
-        this.porra = "porra";
-        this.alternativaSelecionada = "";
-        this.alternativaCerta = "";
-        /*
-        enunciado
-        alternativas []
-        alternativa certa        
-        */
+
+    constructor(template) {
+        this.data = new QuestionData(template())
     }
 
-    gerarElementos() {
-        var container = document.createElement("div");
-        container.id = "Questao";
-        var header = document.createElement("div");
-        header.innerHTML = "Questão 1";
-        header.classList.add("questHeader");
-        container.appendChild(header);
-        var enunciado = document.createElement("div");
-        enunciado.classList.add("enunciado");
-        enunciado.innerHTML = this.QuestaoData.enunciado;
-        container.appendChild(enunciado);
-        var form = document.createElement("form");
-        container.appendChild(form);
-
-
-        this.geraAlternativas(form);
-
-        return container;
-    }
-
-    geraAlternativas(form) {
-
-        this.alternativaCerta = this.QuestaoData.alternativasTxt[this.QuestaoData.alternativaCerta];
-        this.QuestaoData.alternativasTxt = this.randomizeArray(this.QuestaoData.alternativasTxt);
-
-
-        var elementosDasAlternativas = [];
-        for (let i = 0; i < this.QuestaoData.alternativasTxt.length; i++) {
-            let alternativaElement = this.geraAlternativaElements(this.QuestaoData.alternativasTxt[i], i);
-            form.appendChild(alternativaElement);
-            elementosDasAlternativas.push(alternativaElement);
-            alternativaElement.onclick = (event) => {
-                this.selecionaAlternativa.bind(this)(event, alternativaElement, elementosDasAlternativas, this.QuestaoData.alternativasTxt[i]);
-            };
-        }
-    }
-
-    geraAlternativaElements(alternativa, id) {
-        const letras = ['A', 'B', 'C', 'D', 'E', 'F']
-        let InputAlternativa = document.createElement("input");
-        InputAlternativa.type = "radio";
-        InputAlternativa.id = "alternativa-" + id;
-        InputAlternativa.value = InputAlternativa.id;
-        InputAlternativa.name = "alt";
-        let label = document.createElement("label");
-        label.htmlFor = InputAlternativa.id;
-        label.innerHTML = alternativa;
-        label.prepend(InputAlternativa);
-
-        let AltLetra = document.createElement("div");
-        AltLetra.classList.add("alternativaLetra");
-        AltLetra.innerHTML = letras[id];
-        label.prepend(AltLetra);
-
-        return label;
-    }
-
-
-    selecionaAlternativa(event, elemento, elementosDasAlternativas, alternativaTxt) {
-
-        if (event.target != elemento)
-            return;
-
-        elementosDasAlternativas.forEach(element => {
-            element.classList.remove('selected');
+    gerar() {
+        this.data.alternativas = this.randomizeArray(this.data.alternativas);
+        this.view = new QuestionView(this.data);
+        this.data.alternativas.forEach(item => {
+            item.element.onclick = (event) => {
+                this.selecionaAlternativa.bind(this)(event, item);
+            }
         })
 
-        event.target.classList.add("selected");
-        this.alternativaSelecionada = alternativaTxt;
+        return this.view.container;
+    }
 
+    selecionaAlternativa(event, item) {
+         if (event.target != item.element)
+            return;
+
+        this.view.AtualizaSelecionar(this.data, item.element);
+        this.data.alternativaSelecionada = item;
         this.validar();
-
     }
 
     validar() {
-        if (this.alternativaSelecionada == this.alternativaCerta) {
-
-            console.log("Acertou: "+this.alternativaSelecionada);
+        this.view.AtualizaValidacao(this.data.alternativaCerta.element);    
+        if (this.data.alternativaSelecionada == this.data.alternativaCerta) {
+      
         }
     }
 
     randomizeArray(array) {
         var oldArray = array;
+        console.log(array);
         var length = array.length;
         var newArray = [];
         for (var i = 0; i < length; i++) {
@@ -106,6 +48,5 @@ export default class QuestionController {
         }
         return newArray;
     }
-
-
 }
+

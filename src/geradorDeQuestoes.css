@@ -1,6 +1,6 @@
 
 * {
-    border: 1px solid white;
+   /* border: 1px solid white;*/
 }
 #geradorContainer {
     font-family: 'Quicksand', Courier, monospace;
@@ -42,10 +42,7 @@ margin-right: 10px;
 display: none;
 }
 
-#Questao .alternativaCerta {
-   /* background-image: linear-gradient(to right, green , green);*/
 
-}
 .questHeader {
     color: white;
     width: 120%;
@@ -74,4 +71,13 @@ display: none;
 {
     color: black;
     border: 3px solid black;
+}
+#Questao .correta {
+    background-image: linear-gradient(to right, green , green)!important;
+
+}
+#Questao form label.correta .alternativaLetra
+{
+    color: green;
+    border: 3px solid green;
 }
