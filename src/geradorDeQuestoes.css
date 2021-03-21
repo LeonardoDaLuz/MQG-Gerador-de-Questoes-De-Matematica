@@ -1,6 +1,6 @@
 
 * {
-   /* border: 1px solid white;*/
+    border: 1px solid white;
 }
 #geradorContainer {
     font-family: 'Quicksand', Courier, monospace;
@@ -15,9 +15,9 @@
 }
 
 #Questao form label {
-    
+    position: relative;
     display: block;
-    padding: 10px 0px;
+    padding: 5px 0px 5px 40px;
     cursor: pointer;
     color: white;
     background-color: rgb(54, 83, 138);
@@ -25,12 +25,25 @@
     border-radius: 10px;
     margin: 20px 0px;
 }
+#Questao form label.selected {
+    position: relative;
+    display: block;
+    padding: 5px 0px 5px 40px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(54, 83, 138);
+    background-image: linear-gradient(to right, rgb(18, 27, 46) , rgb(93, 125, 184));
+    border-radius: 10px;
+    margin: 20px 0px;
+}
+
 #Questao form input {
 margin-right: 10px;
+display: none;
 }
 
 #Questao .alternativaCerta {
-    background-image: linear-gradient(to right, green , green);
+   /* background-image: linear-gradient(to right, green , green);*/
 
 }
 .questHeader {
@@ -39,4 +52,26 @@ margin-right: 10px;
     margin: -20px -20px 30px -25px;
     padding: 10px 10px 10px 30px;
     background-image: linear-gradient(to right, rgb(92, 129, 204) , rgb(30, 65, 129));
+}
+.alternativaLetra
+{
+    display: block;
+    background-color: white;
+    color: rgb(92, 129, 204);
+    border: 3px solid rgb(92, 129, 204);
+    height:1.5em;
+    width: 1.5em;
+    line-height: 1.5em;
+    text-align: center;
+    border-radius: 1em;
+    position: absolute;
+    font-size: 25px;
+    left: -5px;
+    top: -4px;
+}
+
+#Questao form label.selected .alternativaLetra
+{
+    color: black;
+    border: 3px solid black;
 }
