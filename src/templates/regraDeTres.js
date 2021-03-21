@@ -31,9 +31,9 @@ Na semana passada, ${(percentualDeMaquinasQuePararaPraManutencao * 100).toFixed(
 
 function Questao2() {
 
-    let minutosNecessarios =  Mathf.RandomRange(5, 90).toFixed();
-    let quantidadeMangueiras = Mathf.RandomRange(1, 50).toFixed();
-    let minutosAlmejados = Mathf.RandomRange(1, 90).toFixed();
+    let minutosNecessarios =  Mathf.RandomRange(5, 60).toFixed();
+    let quantidadeMangueiras = Mathf.RandomRange(1, 20).toFixed();
+    let minutosAlmejados = Mathf.RandomRange(10, 50).toFixed();
 
     let a = quantidadeMangueiras * minutosNecessarios;
     let x = a/minutosAlmejados;
@@ -47,7 +47,7 @@ function Questao2() {
         alternativas: [
             Math.ceil(x)+" mangueiras",
             Math.ceil(calculoErrado)+" mangueiras",
-            Math.ceil(x*1.5)+" mangueiras",
+            Math.ceil(x*1.1)+" mangueiras",
             Math.ceil(calculoErrado*1.5)+ " mangueiras"
         ],
         alternativaCerta: 0

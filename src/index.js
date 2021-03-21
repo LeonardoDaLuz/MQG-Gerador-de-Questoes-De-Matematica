@@ -13,5 +13,12 @@ window.questionManager = questionManager;
 questionManager.gerar(geradorContainer, [ "regra de tres" ]);
 
  
+var kcta = [ 'abacate', 'tomate', 'gengibre', 'limao', 'morango', 'uva ']
+console.log(kcta);
 
+var filtered = kcta.filter((value, index, arr)=> {
+    return value != 'tomate';
+});
+
+console.log(filtered);
 //
