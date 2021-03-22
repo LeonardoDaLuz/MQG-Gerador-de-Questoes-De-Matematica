@@ -3,6 +3,7 @@
 <img src="https://github.com/LeonardoDaLuz/MQG-Gerador-de-Questoes-De-Matematica/blob/main/demonstracao/GifDemonstracaoGeracaoDeQuestoes.gif?raw=true" />
 
 <code>
+Exemplo de template de questão:
 
 function Questao2() {
 
