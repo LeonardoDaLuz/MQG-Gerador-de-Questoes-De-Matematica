@@ -1,6 +1,6 @@
 <h1>Gerador de questões de matematica</h1>
 <p>Gera infinitas questões de matemática, sempre com valores diferentes, usando modelos de questões pré-programados (chamo de templates). No momento há apenas 3 templates para regra de três, esses 3 geram infinitas questoes onde os valores são randomizados de maneira coerente e calculam dinamicamente a resposta. Para conferir os templates entre na pasta "./src/templates/".</p>
-<img src="https://github.com/LeonardoDaLuz/MQG-Gerador-de-Questoes-De-Matematica/blob/main/demonstracao/GifDemonstracaoGeracaoDeQuestoes2.gif?raw=true" />
+<img src="https://github.com/LeonardoDaLuz/MQG-Gerador-de-Questoes-De-Matematica/blob/main/demonstracao/GifDemonstracaoGeracaoDeQuestoes3.gif?raw=true" />
 
 <code>
 Exemplo de template de questão:
@@ -29,6 +29,5 @@ Exemplo de template de questão:
         };
     }
 </code>
-
 <h2>Conclusão:</h2>
 <p>Foi apenas um estudo. É possivel fazer geradores de enunciados com gráficos randomicos (como por exemplo para area de um poligono ou volume de um prisma) usando o html canvas, mas fica pro futuro.</p>

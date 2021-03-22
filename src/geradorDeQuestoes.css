@@ -47,7 +47,7 @@ display: none;
 .questHeader {
     color: white;
     width: 120%;
-    margin: -20px -20px 30px -25px;
+    margin: -20px -20px 15px -25px;
     padding: 10px 10px 10px 30px;
     background-image: linear-gradient(to right, rgb(92, 129, 204) , rgb(30, 65, 129));
 }
