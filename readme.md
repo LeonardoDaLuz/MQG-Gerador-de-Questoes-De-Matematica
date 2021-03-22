@@ -27,6 +27,8 @@ Exemplo de template de questão:
             ],
             alternativaCerta: 0
         };
-}
-
+    }
 </code>
+
+<h2>Conclusão:</h2>
+<p>Foi apenas um estudo. É possivel fazer geradores de enunciados com gráficos randomicos (como por exemplo para area de um poligono ou volume de um prisma) usando o html canvas, mas fica pro futuro.</p>
