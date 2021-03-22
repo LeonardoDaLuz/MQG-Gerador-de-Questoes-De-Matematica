@@ -38,7 +38,7 @@ export default class QuestionController {
 
     randomizeArray(array) {
         var oldArray = array;
-        console.log(array);
+
         var length = array.length;
         var newArray = [];
         for (var i = 0; i < length; i++) {
