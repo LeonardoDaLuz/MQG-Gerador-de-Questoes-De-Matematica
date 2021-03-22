@@ -3,6 +3,7 @@
 <img src="https://github.com/LeonardoDaLuz/MQG-Gerador-de-Questoes-De-Matematica/blob/main/demonstracao/GifDemonstracaoGeracaoDeQuestoes.gif?raw=true" />
 
 <code>
+
 function Questao2() {
 
     let minutosNecessarios = Mathf.RandomRange(5, 60).toFixed();
