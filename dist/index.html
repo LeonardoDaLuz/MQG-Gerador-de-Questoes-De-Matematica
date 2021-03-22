@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gerador de questões</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Blinker&family=PT+Serif:ital@1&family=Quicksand:wght@400;500&family=Raleway&display=swap"
+        rel="stylesheet">
+<script defer src="./js/main.js"></script></head>
+<style>
+    #container {
+        max-width: 1000px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    body {
+        background-color: rgb(120, 143, 206);
+        margin: 0;
+        padding-top: 20px;
+
+    }
+
+    button {
+        font-size: 25px;
+        border: none;
+        outline: none;
+        margin-bottom: 20px;
+        background-color: rgb(228, 240, 255);
+        border-radius: 10px;
+        box-shadow: 0 9px rgb(142, 177, 192);
+    }
+
+    button:active {
+        border: none;
+        outline: none;
+        background-color: rgb(228, 240, 255);
+        box-shadow: 0 5px rgb(142, 177, 192);
+        transform: translateY(4px);
+    }
+
+    button:hover {
+        border: none;
+        outline: none;
+    }
+</style>
+
+<body>
+
+    <div id="container">
+        <button onclick="questionManager.gerar('geradorContainer', [ 'regra de tres' ])">Gerar</button>
+        <div id='geradorContainer'></div>
+    </div>
+    <scrip>
+    
+    </scrip>
+
+</body>
+
+</html>
