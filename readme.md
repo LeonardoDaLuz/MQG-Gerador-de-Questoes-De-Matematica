@@ -1,2 +1,2 @@
-<h1>Teste titulo</h1>
-<p>alsjlasd</p>
+<h1>Gerador de questões de matematica</h1>
+<p>Gera infinitas questões de matemáticas, sempre com valores diferentes, usando modelos de questões pré-programados (chamo de templates). No momento há apenas 3 templates para regra de três. Para conferir os templates entre na pasta ./src/templates/</p>
